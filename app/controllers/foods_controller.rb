@@ -1,4 +1,3 @@
 class FoodsController < ActionController::Base
-  def index
-  end
+  def index; end
 end

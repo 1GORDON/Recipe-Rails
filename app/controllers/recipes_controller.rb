@@ -1,4 +1,3 @@
 class RecipesController < ActionController::Base
-    def index
-    end
-  end
+  def index; end
+end
