@@ -10,12 +10,10 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  */
- //= require jquery3
-//= require popper
-//= require bootstrap-sprockets
+
 @import "bootstrap";
 
-body {
+.body {
   margin: 20px;
 }
 
@@ -24,4 +22,9 @@ body {
   justify-content: flex-end;
   margin-top: 50px;
   margin-bottom: 150px;
+}
+
+.navbar-brand {
+  margin-left: 20px;
+  margin-right: 50vw;
 }
