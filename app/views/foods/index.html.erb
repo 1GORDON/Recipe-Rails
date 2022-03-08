@@ -29,24 +29,16 @@
         <th>Unit Price</th>
         <th>Action</th>
       </tr>
+
+      <% @foods.each do |food| %>
       <tr>
-        <td>Apples</td>
-        <td>Grams</td>
-        <td>5$</td>
+        <td><%=food.name%></td>
+        <td><%=food.measurement_unit%></td>
+        <td><%=food.price%>$</td>
         <td>Delete</td>
       </tr>
-      <tr>
-        <td>Pienapple</td>
-        <td>Grams</td>
-        <td>1$</td>
-        <td>Delete</td>
-      </tr>
-      <tr>
-        <td>Chicken breast</td>
-        <td>Units</td>
-        <td>2$</td>
-        <td>Delete</td>
-      </tr>
+      <% end %>
+
       </table>
     </div>
     </section>
