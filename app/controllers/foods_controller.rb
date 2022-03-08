@@ -24,6 +24,14 @@ class FoodsController < ActionController::Base
     end
   end
 
+  def destroy
+    @user = current_user
+    @food = @user.foods.find(params[:id])
+    @food.destroy
+    redirect_to foods_path
+    flash[:success] = 'Comment was deleted!'
+  end
+
   private
 
   def food_params
