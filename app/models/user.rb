@@ -6,4 +6,12 @@ class User < ApplicationRecord
   has_many :inventories
   has_many :foods
   has_many :recipes
+
+  # def self.recent_post(id)
+  #   Post.where(user_id: id).limit(3)
+  # end
+
+  # def self.all_post(id)
+  #   Post.where(user_id: id)
+  # end
 end
