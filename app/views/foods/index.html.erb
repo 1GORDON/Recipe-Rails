@@ -1,8 +1,52 @@
-<% if user_signed_in? %>
-    Logged in as <strong><%= current_user.email %></strong>.
-    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-    <%= link_to "Sign out", destroy_user_session_path, method: :get %>
-    <% else %>
-    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recipe App</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", async: true %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+
+    <%= render "partials/nav" %>
+    
+    <section class="body">
+    <div class="add-btn">
+    <%= link_to 'foods/new', :remote => true do %>
+      <input type="button" class="btn btn-primary" value="Add Food">
+    <% end %>
+    </div>
+
+    <div class="table">
+      <table class="table table-bordered">
+      <tr>
+        <th>Food</th>
+        <th>Measurement Unit</th>
+        <th>Unit Price</th>
+        <th>Action</th>
+      </tr>
+
+      <% @foods.each do |food| %>
+      <tr>
+        <td><%=food.name%></td>
+        <td><%=food.measurement_unit%></td>
+        <td><%=food.price%>$</td>
+        <td>
+          <%= button_to "Delete", food_path(food.id), html: {'data-turbo' => "false"}, :method => :delete, class: "btn btn-danger" %>
+        </td>
+      </tr>
+      <% end %>
+
+      </table>
+    </div>
+    </section>
+  </body>
+</html>
+
+
+
