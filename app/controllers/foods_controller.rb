@@ -4,7 +4,7 @@ class FoodsController < ActionController::Base
   end
 
   def new
-    @user = User.first
+    @user = current_user
     @food = @user.foods.new
   end
 
