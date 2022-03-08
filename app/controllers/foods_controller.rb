@@ -9,15 +9,15 @@ class FoodsController < ActionController::Base
   end
 
   def create
-    @user = User.first
+    @user = current_user
     food = @user.foods.new(food_params)
     respond_to do |format|
       format.html do
         if food.save
-          flash[:success] = 'Post created successfully'
+          flash[:success] = 'Food created successfully'
           redirect_to foods_url
         else
-          flash.now[:error] = 'Error: Post could not be created'
+          flash.now[:error] = 'Error: Food could not be created'
           render :new
         end
       end
@@ -29,7 +29,7 @@ class FoodsController < ActionController::Base
     @food = @user.foods.find(params[:id])
     @food.destroy
     redirect_to foods_path
-    flash[:success] = 'Comment was deleted!'
+    flash[:success] = 'Food was deleted!'
   end
 
   private
