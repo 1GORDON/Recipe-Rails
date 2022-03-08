@@ -10,7 +10,9 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  */
-
+ /*
+ *= require jquery-ui
+ */
 @import "bootstrap";
 
 .body {
@@ -21,10 +23,6 @@
   display: flex;
   justify-content: flex-end;
   margin-top: 50px;
-  margin-bottom: 150px;
+  margin-bottom: 50px;
 }
 
-.navbar-brand {
-  margin-left: 35px;
-  margin-right: 55vw;
-}
