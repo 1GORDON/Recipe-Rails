@@ -1,3 +1,52 @@
-<%= link_to 'foods/new', :remote => true do %>
-  <input type="button" class="btn btn-primary" value="See all posts">
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RecipeApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="add-btn">
+    <%= link_to 'foods/new', :remote => true do %>
+      <input type="button" class="btn btn-primary" value="Add Food">
+    <% end %>
+    </div>
+
+    <div class="table">
+      <table class="table table-bordered">
+      <tr>
+        <th>Food</th>
+        <th>Measurement Unit</th>
+        <th>Unit Price</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+        <td>Apples</td>
+        <td>Grams</td>
+        <td>5$</td>
+        <td>Delete</td>
+      </tr>
+      <tr>
+        <td>Pienapple</td>
+        <td>Grams</td>
+        <td>1$</td>
+        <td>Delete</td>
+      </tr>
+      <tr>
+        <td>Chicken breast</td>
+        <td>Units</td>
+        <td>2$</td>
+        <td>Delete</td>
+      </tr>
+      </table>
+    </div>
+
+  </body>
+</html>
+
+
