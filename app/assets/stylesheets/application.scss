@@ -20,6 +20,13 @@
   margin: 20px;
 }
 
+body {
+  background-image: url("/assets/w1.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .add-btn {
   display: flex;
   justify-content: flex-end;
