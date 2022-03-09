@@ -2,6 +2,7 @@ class RecipesController < ActionController::Base
   def index
     @recipes = Recipe.all
   end
+
   def new
     @user = current_user
     @recipe = @user.recipes.new
@@ -34,6 +35,6 @@ class RecipesController < ActionController::Base
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :measurement_unit, :price)
+    params.require(:recipe).permit(:name, :preperation_time, :cooking_time, :public, :description)
   end
 end
