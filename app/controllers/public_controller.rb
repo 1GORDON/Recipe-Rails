@@ -1,3 +1,5 @@
 class PublicController < ActionController::Base
-  def index; end
+  def index
+    @recipes = Recipe.where(public: true)
+  end
 end
