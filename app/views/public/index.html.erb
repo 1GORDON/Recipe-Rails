@@ -12,6 +12,18 @@
 
   <body>
     <%= render "partials/nav" %>
-    Public Recipes
+    <section class="body">
+     <h1>Public Recipes</h1>
+    <% @recipes.each do |recipe| %>
+
+    <div>
+      <h2><%=recipe.name%></h2>
+      <h2>By: <%=User.find(recipe.user_id).name%></h2>
+      <h2>Total food Items: 40</h2>
+      <h2>Total Price: $204</h2>
+    </div>
+
+    <% end %>
+    </section>
   </body>
 </html>
