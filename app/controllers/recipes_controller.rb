@@ -5,8 +5,7 @@ class RecipesController < ActionController::Base
   end
 
   def show
-    @user = current_user
-    @recipe = @user.recipes.find(params[:id])
+    @recipe = Recipe.find(params[:id])
   end
 
   def new

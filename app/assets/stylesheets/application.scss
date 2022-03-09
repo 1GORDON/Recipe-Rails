@@ -49,6 +49,10 @@ body {
   align-items: center;
 }
 
+.equal {
+  grid-template-columns: 1fr 1fr;
+}
+
 .recipe-border h2 {
   margin-bottom: 30px;
 }

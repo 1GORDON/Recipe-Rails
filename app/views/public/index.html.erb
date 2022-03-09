@@ -17,18 +17,18 @@
 
     <% @recipes.each do |recipe| %>
 
-    <div class= "recipe-border">
+    <div class= "recipe-border equal">
 
       <div>
-      <%= link_to recipe_path(recipe.id), :remote => true do %>    
+      <%= link_to recipe_path(recipe.id), :remote => true do %>
         <h2><%=recipe.name%></h2>
         <%end%>
-        <h2>By: <%=User.find(recipe.user_id).name%></h2>
+        <h4>By: <%=User.find(recipe.user_id).name%></h4>
       </div>
 
       <div>
-        <h2>Total food Items: 40</h2>
-        <h2>Total Price: $204</h2>
+        <h4>Total food Items: 40</h4>
+        <h4>Total Price: $204</h4>
       </div>
     </div>
 
