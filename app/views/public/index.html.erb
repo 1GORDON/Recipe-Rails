@@ -19,8 +19,10 @@
 
     <div class= "recipe-border">
 
-      <div>    
+      <div>
+      <%= link_to recipe_path(recipe.id), :remote => true do %>    
         <h2><%=recipe.name%></h2>
+        <%end%>
         <h2>By: <%=User.find(recipe.user_id).name%></h2>
       </div>
 
