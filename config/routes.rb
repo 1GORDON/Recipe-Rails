@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   root "foods#index"
   # root :to => "devise/sessions#new"
   resources :foods, only: [:index, :new, :create, :destroy]
-  resources :recipes, only: [:index]
+  resources :recipes, only: [:index, :new, :create, :destroy, :show] do
+    resources :recipe_foods, only: [:new, :create]
+  end
   resources :public, only: [:index]
   resources :general, only: [:index]
 
