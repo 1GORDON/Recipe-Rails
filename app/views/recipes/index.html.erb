@@ -16,34 +16,17 @@
     <%= render "partials/nav" %>
     
     <section class="body">
-    <div class="add-btn">
-    <%= link_to 'foods/new', :remote => true do %>
-      <input type="button" class="btn btn-primary" value="Add Food">
-    <% end %>
-    </div>
-
-    <div class="table">
-      <table class="table table-bordered">
-      <tr>
-        <th>Food</th>
-        <th>Measurement Unit</th>
-        <th>Unit Price</th>
-        <th>Action</th>
-      </tr>
-
-      <% @foods.each do |food| %>
-      <tr>
-        <td><%=food.name%></td>
-        <td><%=food.measurement_unit%></td>
-        <td><%=food.price%>$</td>
-        <td>
-          <%= button_to "Delete", food_path(food.id), html: {'data-turbo' => "false"}, :method => :delete, class: "btn btn-danger" %>
-        </td>
-      </tr>
+      <%@recipes.each do |recipe| %>
+        <div class="recipe-boarder">
+          <div class="space">
+            <h2><%=recipe.name%></h2>
+            <button class="btn btn-primary">Remove</button>
+          <div>
+          <div class="recipes">
+            <p><%=recipe.description%></p>
+          </div>
+        </div>
       <% end %>
-
-      </table>
-    </div>
     </section>
   </body>
 </html>
