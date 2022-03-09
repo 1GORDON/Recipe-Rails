@@ -32,20 +32,12 @@
   margin-right: 45vw;
 }
 
-.recipe-boarder {
+.recipe-border {
   border: rgb(41, 40, 40) solid 2px;
   border-radius: 10px;
   padding: 10px;
-}
-
-.recipes {
-  display: flex;
-  justify-content: center;
-  margin-top: -50px;
-  margin-bottom: 10px;
-  padding-left: 100px;
-}
-
-.space h2 {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  align-items: center;
 }
