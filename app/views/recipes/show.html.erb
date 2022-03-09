@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recipe App</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <%= render "partials/nav" %>
+
+    <section class="body">
+    <div class="heading">
+      <h1><%=@recipe.name%></h1>
+    </div>
+
+    <div class="grid">
+
+      <div>
+        <h3>Preparation Time: <%=@recipe.preperation_time%></h3>
+        <h3>Cooking Time: <%=@recipe.cooking_time%></h3>
+        <h3>Steps go here...</h3>
+      </div>
+
+      <h3>
+       <%if @recipe.public == false%>
+          <div class="form-check form-switch">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Public</label>
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+          </div>
+        <%else%>
+          <div class="form-check form-switch">
+            <label class="form-check-label" for="flexSwitchCheckChecked">Public</label>  
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+          </div>
+        <%end%>
+       </h3>
+
+    </div>
+
+    <div class="grid">
+      <input type="button" class="btn btn-primary" value="Generate Shopping List">
+
+      <input type="button" class="btn btn-primary" value="Add Ingredients">
+    </div>
+
+      <hr>
+
+          <div class="table">
+      <table class="table table-bordered">
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <th>Action</th>
+      </tr>
+
+      <tr>
+        <td>Apples</td>
+        <td>100 grams</td>
+        <td>100$</td>
+        <td>
+          <%= button_to "Delete", class: "btn btn-danger" %>
+        </td>
+      </tr>
+
+      </table>
+    </div>
+
+
+    
+    
+    </section>
+
+  </body>
+</html>

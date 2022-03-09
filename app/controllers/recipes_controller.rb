@@ -1,6 +1,12 @@
 class RecipesController < ActionController::Base
   def index
-    @recipes = Recipe.all
+    @user = current_user
+    @recipes = @user.recipes.all
+  end
+
+  def show
+    @user = current_user
+    @recipe = @user.recipes.find(params[:id])
   end
 
   def new
