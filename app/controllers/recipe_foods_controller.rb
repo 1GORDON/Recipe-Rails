@@ -1,21 +1,18 @@
 class RecipeFoodsController < ActionController::Base
   def new
-    @user = current_user
-    @food = @user.foods.new
-    @recipe = @user.recipes.find(params[:recipe_id])
-    @recipe_foods = @recipe.recipeFoods.new
+    @recipe = Recipe.find(params[:recipe_id])
+    @foods = Food.all
+    @recipe_food = RecipeFood.new
   end
 
   def create
-    @user = current_user
-    @food = @user.foods.new(food_params)
-    @recipe = @user.recipes.find(params[:recipe_id])
-    recipe_food = recipeFoods.new(quantity: recipe_params, recipe: @recipe, food: @food)
+    @recipe = Recipe.find(params[:recipe_id])
+    recipe_food = @recipe.recipeFoods.create(recipe_params)
     respond_to do |format|
       format.html do
         if recipe_food.save
           flash[:success] = 'Food created successfully'
-          redirect_to recipe_url
+          redirect_to @recipe
         else
           flash.now[:error] = 'Error: Food could not be created'
           render :new
@@ -26,11 +23,8 @@ class RecipeFoodsController < ActionController::Base
 
   private
 
-  def food_params
-    params.require(:food).permit(:name, :measurement_unit, :price)
+  def recipe_params
+    params.require(:recipe_food).permit(:quantity, :food_id)
   end
 
-  def recipe_params
-    params.require(:food).permit(:quantity)
-  end
 end
