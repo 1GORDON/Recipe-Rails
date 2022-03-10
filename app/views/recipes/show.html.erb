@@ -70,7 +70,7 @@
       <tr>
         <td><%=Food.find(food.food_id).name%></td>
         <td><%=food.quantity%> <%=Food.find(food.food_id).measurement_unit%></td>
-        <td><%=Food.find(food.food_id).price*food.quantity%>$</td>
+        <td><%=RecipeFood.value(food.id)%>$</td>
         <td>
         <div class="flex-btn">
           <%= button_to "Modify", edit_recipe_recipe_food_path(food.recipe_id,food.id), html: {'data-turbo' => "false"}, :method => :get, class: "btn btn-success" %>

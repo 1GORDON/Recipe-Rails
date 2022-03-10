@@ -5,4 +5,15 @@ class Recipe < ApplicationRecord
   validates :description, presence: true
   validates :cooking_time, presence: true
   validates :preperation_time, presence: true
+
+  def self.total_value(id)
+    recipe = Recipe.find(id)
+    recipe_foods = recipe.recipeFoods
+    total = recipe_foods.map { |x| RecipeFood.value(x.id) }.reduce(:+)
+  end
+
+  def self.items(id)
+    recipe = Recipe.find(id)
+    recipe_foods = recipe.recipeFoods.count
+  end
 end
