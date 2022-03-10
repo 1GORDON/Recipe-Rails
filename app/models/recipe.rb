@@ -1,6 +1,6 @@
 class Recipe < ApplicationRecord
   belongs_to :user
-  has_many :recipeFoods
+  has_many :recipeFoods, dependent: :destroy
   validates :name, presence: true
   validates :description, presence: true
   validates :cooking_time, presence: true
