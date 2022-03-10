@@ -70,7 +70,7 @@
         <td><%=food.quantity%> <%=Food.find(food.food_id).measurement_unit%></td>
         <td><%=Food.find(food.food_id).price*food.quantity%>$</td>
         <td>
-          <%= button_to "Delete", class: "btn btn-danger" %>
+          <%= button_to "Delete", recipe_recipe_food_path(food.recipe_id,food.id), html: {'data-turbo' => "false"}, :method => :delete, class: "btn btn-danger" %>
         </td>
       </tr>
       <%end%>

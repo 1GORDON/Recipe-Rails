@@ -21,6 +21,14 @@ class RecipeFoodsController < ActionController::Base
     end
   end
 
+  def destroy
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipe_food = RecipeFood.find(params[:id])
+    @recipe_food.destroy
+    redirect_to @recipe
+    flash[:success] = 'Food was deleted!'
+  end
+
   private
 
   def recipe_params
