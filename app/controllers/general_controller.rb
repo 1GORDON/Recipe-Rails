@@ -4,6 +4,7 @@ class GeneralController < ActionController::Base
     @user = current_user
     @recipe = Recipe.where(user_id: @user.id)
     @recipe_foods = RecipeFood.all
-    @foods = Food.where(user_id: @user.id)
+    @food = Food.all
+    # @foods = Food.where(user_id: @user.id)
   end
 end
