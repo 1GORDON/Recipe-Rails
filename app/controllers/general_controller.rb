@@ -1,3 +1,8 @@
 class GeneralController < ActionController::Base
-  def index; end
+  def index
+    # @foods = Food.includes(:recipeFoods).all.where("user_id != ?", current_user.id)
+    @user = current_user
+    @recipe = Recipe.where(user_id: @user.id)
+    @foods = Food.where(user_id: @user.id)
+  end
 end

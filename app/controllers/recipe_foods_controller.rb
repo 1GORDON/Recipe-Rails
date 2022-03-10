@@ -54,5 +54,4 @@ class RecipeFoodsController < ActionController::Base
   def new_params
     params.require(:recipe_food).permit(:quantity, :food_id)
   end
-
 end

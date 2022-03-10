@@ -19,7 +19,7 @@
       </div>
 
       <div class="para">
-        <h3>Amount of food to buy: 3</h3>
+        <h3>Amount of food to buy: <%=@foods.count%></h3>
         <h3>Total value of food needed: 840$</h3>
       </div>
 
@@ -30,21 +30,15 @@
         <th>Quantity</th>
         <th>Price</th>
       </tr>
+
+       <% @foods.each do |food| %>
       <tr>
-        <td>Apple</td>
-        <td>150 grams</td>
+        <td><%=food.name%></td>
+        <td><%=food.recipeFoods%> <%=food.measurement_unit%></td>
         <td>540$</td>
       </tr>
-        <tr>
-        <td>Pienapple</td>
-        <td>100 grams</td>
-        <td>200$</td>
-      </tr>
-      <tr>
-        <td>Chicken breast</td>
-        <td>50 grams</td>
-        <td>100$</td>
-      </tr>
+      <%end%>
+
       </table>
     </div>
     </section>

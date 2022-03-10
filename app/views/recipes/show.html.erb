@@ -66,15 +66,15 @@
         <th>Action</th>
       </tr>
 
-      <% @recipe_foods.each do |food| %>
+      <% @recipe_foods.each do |recipe_food| %>
       <tr>
-        <td><%=Food.find(food.food_id).name%></td>
-        <td><%=food.quantity%> <%=Food.find(food.food_id).measurement_unit%></td>
-        <td><%=RecipeFood.value(food.id)%>$</td>
+        <td><%=Food.find(recipe_food.food_id).name%></td>
+        <td><%=recipe_food.quantity%> <%=Food.find(recipe_food.food_id).measurement_unit%></td>
+        <td><%=RecipeFood.value(recipe_food.id)%>$</td>
         <td>
         <div class="flex-btn">
-          <%= button_to "Modify", edit_recipe_recipe_food_path(food.recipe_id,food.id), html: {'data-turbo' => "false"}, :method => :get, class: "btn btn-success" %>
-          <%= button_to "Delete", recipe_recipe_food_path(food.recipe_id,food.id), html: {'data-turbo' => "false"}, :method => :delete, class: "btn btn-danger" %>
+          <%= button_to "Modify", edit_recipe_recipe_food_path(recipe_food.recipe_id,recipe_food.id), html: {'data-turbo' => "false"}, :method => :get, class: "btn btn-success" %>
+          <%= button_to "Delete", recipe_recipe_food_path(recipe_food.recipe_id,recipe_food.id), html: {'data-turbo' => "false"}, :method => :delete, class: "btn btn-danger" %>
         </div>
        </td>
       </tr>

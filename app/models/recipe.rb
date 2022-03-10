@@ -9,11 +9,11 @@ class Recipe < ApplicationRecord
   def self.total_value(id)
     recipe = Recipe.find(id)
     recipe_foods = recipe.recipeFoods
-    total = recipe_foods.map { |x| RecipeFood.value(x.id) }.reduce(:+)
+    recipe_foods.map { |x| RecipeFood.value(x.id) }.reduce(:+)
   end
 
   def self.items(id)
     recipe = Recipe.find(id)
-    recipe_foods = recipe.recipeFoods.count
+    recipe.recipeFoods.count
   end
 end
