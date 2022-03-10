@@ -21,6 +21,22 @@ class RecipeFoodsController < ActionController::Base
     end
   end
 
+  def edit
+    @recipe = Recipe.find(params[:recipe_id])
+    @foods = Food.all
+    @recipe_food = RecipeFood.find(params[:id])
+  end
+
+  def update
+    @recipe_food = RecipeFood.find(params[:id])
+    if @recipe_food.update(new_params)
+      flash[:success] = 'Recipe Food updated successfully.'
+    else
+      flash[:error] = 'Something went wrong'
+    end
+    redirect_to recipe_path(@recipe_food.recipe_id)
+  end
+
   def destroy
     @recipe = Recipe.find(params[:recipe_id])
     @recipe_food = RecipeFood.find(params[:id])
@@ -32,6 +48,10 @@ class RecipeFoodsController < ActionController::Base
   private
 
   def recipe_params
+    params.require(:recipe_food).permit(:quantity, :food_id)
+  end
+
+  def new_params
     params.require(:recipe_food).permit(:quantity, :food_id)
   end
 

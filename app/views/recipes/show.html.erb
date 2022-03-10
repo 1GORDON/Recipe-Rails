@@ -43,7 +43,9 @@
     </div>
 
     <div class="grid">
+      <%= link_to general_index_path, :remote => true do %>
       <input type="button" class="btn btn-primary" value="Generate Shopping List">
+      <%end%>
 
       <% if can? :manage, @recipe %>
       <%= link_to new_recipe_recipe_food_path(@recipe.id), :remote => true do %>
@@ -70,8 +72,11 @@
         <td><%=food.quantity%> <%=Food.find(food.food_id).measurement_unit%></td>
         <td><%=Food.find(food.food_id).price*food.quantity%>$</td>
         <td>
+        <div class="flex-btn">
+          <%= button_to "Modify", edit_recipe_recipe_food_path(food.recipe_id,food.id), html: {'data-turbo' => "false"}, :method => :get, class: "btn btn-success" %>
           <%= button_to "Delete", recipe_recipe_food_path(food.recipe_id,food.id), html: {'data-turbo' => "false"}, :method => :delete, class: "btn btn-danger" %>
-        </td>
+        </div>
+       </td>
       </tr>
       <%end%>
 
