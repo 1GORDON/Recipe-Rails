@@ -6,6 +6,7 @@ class RecipesController < ActionController::Base
 
   def show
     @recipe = Recipe.find(params[:id])
+    @recipe_foods = @recipe.recipeFoods.all
   end
 
   def new
