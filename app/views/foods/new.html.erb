@@ -13,9 +13,11 @@
   <body>
 
     <section class="body">  
+      <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
       <h1>Add a new Food</h1>
 
-      <%= form_with model: @food do |f| %>
+      <%= form_with model: @food, html: {'data-turbo' => "false"} do |f| %>
       
         <div class="mb-3">
           <%= f.label :name %>
