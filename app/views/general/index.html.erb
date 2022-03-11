@@ -21,7 +21,7 @@
 
       <div class="para">
         <h3>Amount of food items to buy: <%=@recipe_foods.length %></h3>
-        <h3>Total value of food needed: <%=@foods.count%></h3>
+        <h3>Total value of food needed: $<%=@total%></h3>
       </div>
 
       <div class="table">
@@ -36,8 +36,8 @@
         <% if @foods.include?(gk.food)%>
           <tr>
             <td><%=gk.food.name%></td>
-            <td><%=gk.quantity%></td>
-            <td><%=gk.food.price * gk.quantity%></td>
+            <td><%=gk.quantity%> <%=Food.find(gk.food_id).measurement_unit%></td>
+            <td> $<%=gk.food.price * gk.quantity%></td>
           </tr>
         <%end%>
       <%end%>
