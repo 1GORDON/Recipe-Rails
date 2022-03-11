@@ -43,11 +43,16 @@
     </div>
 
     <div class="grid">
+      <%= link_to general_index_path, :remote => true do %>
       <input type="button" class="btn btn-primary" value="Generate Shopping List">
+      <%end%>
 
+      <% if can? :manage, @recipe %>
       <%= link_to new_recipe_recipe_food_path(@recipe.id), :remote => true do %>
         <input type="button" class="btn btn-primary" value="Add Ingredients">
       <%end%>
+      <%end%>
+
     </div>
 
       <hr>
@@ -61,20 +66,22 @@
         <th>Action</th>
       </tr>
 
+      <% @recipe_foods.each do |recipe_food| %>
       <tr>
-        <td>Apples</td>
-        <td>100 grams</td>
-        <td>100$</td>
+        <td><%=Food.find(recipe_food.food_id).name%></td>
+        <td><%=recipe_food.quantity%> <%=Food.find(recipe_food.food_id).measurement_unit%></td>
+        <td> $<%=RecipeFood.value(recipe_food.id)%></td>
         <td>
-          <%= button_to "Delete", class: "btn btn-danger" %>
-        </td>
+        <div class="flex-btn">
+          <%= button_to "Modify", edit_recipe_recipe_food_path(recipe_food.recipe_id,recipe_food.id), html: {'data-turbo' => "false"}, :method => :get, class: "btn btn-success" %>
+          <%= button_to "Delete", recipe_recipe_food_path(recipe_food.recipe_id,recipe_food.id), html: {'data-turbo' => "false"}, :method => :delete, class: "btn btn-danger" %>
+        </div>
+       </td>
       </tr>
-
+      <%end%>
+      
       </table>
     </div>
-
-
-    
     
     </section>
 

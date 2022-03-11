@@ -15,36 +15,28 @@
   <section class="body">  
   <h1>Add a new Ingredient</h1>
 
-  <%= form_with model: @food do |f| %>
-  
-  <div class="mb-3">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "form-control"%>
-  </div>
+  <%= form_with model: [@recipe, @recipe.recipeFoods.create] do |f| %>
 
   <div class="mb-3">
-    <%= f.label :measurement_unit %>
-    <%= f.text_field :measurement_unit, class: "form-control"%>
+    <%= f.label :food%>
+    <%= f.select :food_id, current_user.foods.collect { |food| [food.name, food.id]}, {include_blank: true}, class: "form-control"%>
   </div>
 
-  <div class="mb-3">
-    <%= f.label :price %>
-    <%= f.number_field :price, class: "form-control"%>
-  </div>
-
-  <div class="mb-3">
-    <%= f.fields_for @recipe_foods do |field| %>
-        <%= field.label :quantity %></div>
-        <%= field.number_field :quantity, class: "form-control" %>
-    <% end %>
-  </div>
-
-  <div class="mb-3"></div>
     <div class="mb-3">
-     <%= f.submit class: "btn btn-primary" %>
-     </div>
-    <% end %>
-    </section>
+      <%= f.label :quantity %></div>
+      <%= f.number_field :quantity, class: "form-control", required: true, placeholder: '1',  min: 1 %>
+    </div>
+
+    <div class="mb-3"></div>
+
+
+    <div class="mb-3">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+
+    <%end%>
+
+  </section>
 
   </body>
 </html>

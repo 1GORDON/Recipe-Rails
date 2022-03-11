@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/foods">Recipe App</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
   <div class="navbar-collapse collapse show" id="navbarColor01" style="">
     <ul class="navbar-nav mr-auto">
@@ -17,17 +17,6 @@
       </li>
       <li class="nav-item <%= active_class(general_index_path) %>">
         <%= link_to 'General Shopping List', general_index_path, class: 'nav-link' %>
-      </li>
-
-      <li class="nav-item dropdown">
-        <div class="dropdown-menu">
-	        <%= link_to 'Foods', foods_path, class: 'nav-link' %>
-	        <%= link_to 'Recipes', recipes_path, class: 'nav-link' %>
-	        <%= link_to 'Public Recipes', public_index_path, class: 'nav-link' %>
-	        <%= link_to 'General Shopping List', general_index_path, class: 'nav-link' %>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Separated link</a>
-        </div>
       </li>
     </ul>
 
@@ -51,6 +40,8 @@
   </div>
 </nav>
 
-    <% if user_signed_in? %>
-    Logged in as <strong><%= current_user.email %></strong>.
-    <% end %>
+<% if user_signed_in? %>
+  <p class="email-display">Logged in as <strong><%= current_user.email %></strong>.</p>
+<% else %>
+  <p class="email-display">Please Login<p>
+<% end %>

@@ -29,7 +29,7 @@
 
 .navbar-brand {
   margin-left: 20px;
-  margin-right: 45vw;
+  margin-right: 35vw;
 }
 
 .recipe-border {
@@ -40,6 +40,10 @@
   display: grid;
   grid-template-columns: 1fr 4fr;
   align-items: center;
+}
+
+.equal {
+  grid-template-columns: 1fr 1fr;
 }
 
 .recipe-border h2 {
@@ -56,6 +60,27 @@ a {
   justify-content: center;
 }
 
+.para {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.nav-item {
+  margin-left: 20px;
+}
+
+.navbar-toggler {
+  margin-right: 20px;
+}
+
+@media only screen and (min-width: 990px) and (max-width: 1300px) {
+  .navbar-brand {
+    margin-right: 20vw;
+  }
+}
+
 .grid {
   display: flex;
   justify-content: space-between;
@@ -69,4 +94,17 @@ a {
 hr {
   border: 1px solid black;
   margin-inline: 40px;
+}
+
+.flex-btn {
+  display: flex;
+  justify-content: space-around;
+}
+
+.email-display {
+  padding: 10px 20px;
+}
+
+.notice {
+  padding: 10px 20px;
 }
