@@ -1,10 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Food, type: :model do
-
   before(:each) do
     user1 = User.create! name: 'Justin', password: '000000', email: 'justin@gmail.com',
-                          confirmed_at: Time.now
+                         confirmed_at: Time.now
     subject { Food.create(name: 'Milk', measurement_unit: 'grams', price: '10', user: user1) }
     subject.save
   end
@@ -23,5 +22,4 @@ RSpec.describe Food, type: :model do
     subject.price = 0
     expect(subject).to_not be_valid
   end
-
 end
