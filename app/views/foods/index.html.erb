@@ -16,13 +16,11 @@
     <%= render "partials/nav" %>
     
     <section class="body">
-    <% if user_signed_in? %>
       <div class="add-btn">
         <%= link_to 'foods/new', :remote => true do %>
           <input type="button" class="btn btn-primary" value="Add Food">
         <% end %>
       </div>
-      <%end%>
 
       <div class="table">
         <table class="table table-bordered">

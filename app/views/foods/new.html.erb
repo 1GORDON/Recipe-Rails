@@ -17,21 +17,21 @@
     <p class="alert"><%= alert %></p>
       <h1>Add a new Food</h1>
 
-      <%= form_with model: @food, html: {'data-turbo' => "false"} do |f| %>
+      <%= form_with model: @food do |f| %>
       
         <div class="mb-3">
           <%= f.label :name %>
-          <%= f.text_field :name, class: "form-control"%>
+          <%= f.text_field :name, required: true, class: "form-control"%>
         </div>
 
         <div class="mb-3">
           <%= f.label :measurement_unit %>
-          <%= f.text_field :measurement_unit, class: "form-control"%>
+          <%= f.text_field :measurement_unit, required: true, class: "form-control"%>
         </div>
 
         <div class="mb-3">
           <%= f.label :price %>
-          <%= f.number_field :price, class: "form-control"%>
+          <%= f.number_field :price, required: true, min: 0.01, class: "form-control"%>
         </div>
 
         <div class="mb-3">
